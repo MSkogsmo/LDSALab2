@@ -16,8 +16,12 @@ public class WordCount {
             String line = value.toString();
             StringTokenizer tokenizer = new StringTokenizer(line);
             while (tokenizer.hasMoreTokens()) {
-                word.set(tokenizer.nextToken());
-                output.collect(word, one);
+                //String new_string = word.toString().substring(0, 1);
+                //word = new Text(new_string);
+		word.set(tokenizer.nextToken());
+        	String new_string = word.toString().substring(0, 1).toLowerCase();
+                word = new Text(new_string);
+	        output.collect(word, one);
             }
         }
     }
